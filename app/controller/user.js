@@ -1,12 +1,4 @@
-const Controller = require('egg').Controller
-
-class UserController  extends Controller {
-    async info() {
-        const { ctx } = this
-        const userId = ctx.params.userId
-        const userInfo = await ctx.service.user.find(userId)
-        ctx.body = userInfo
-    }
+exports.index = function* (ctx) {
+    ctx.body = yield ctx.model.User.find()
+    console.log(ctx.body)
 }
-
-module.exports = UserController

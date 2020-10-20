@@ -23,8 +23,16 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  const mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1/example',
+      options: {}
+    }
+  }
+
   return {
     ...config,
     ...userConfig,
+    mongoose
   };
 };
